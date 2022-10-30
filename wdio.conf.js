@@ -58,10 +58,10 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 5,
-        platformName: 'Android',
-        // app: '',
         //
-        browserName: 'chrome',
+        platformName: 'Android',
+        app: 'https://github.com/Darkempire78/OpenCalc/releases/download/1.7.2/OpenCalc.v1.7.2.apk',
+        // browserName: 'chrome',
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
@@ -137,7 +137,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','junit'],
+    reporters: ['spec','junit','json'],
 
 
     //

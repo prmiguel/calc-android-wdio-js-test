@@ -1,22 +1,19 @@
-const { Given, When, Then } = require('@wdio/cucumber-framework');
+import { Given, When, Then } from '@wdio/cucumber-framework'
+import calculatorPage from '../pageobjects/calculator.page'
 
-const LoginPage = require('../pageobjects/login.page');
-const SecurePage = require('../pageobjects/secure.page');
-
-const pages = {
-    login: LoginPage
-}
-
-Given(/^I am on the (\w+) page$/, async (page) => {
-    await pages[page].open()
+Given('I have a Calculator', async function() {
+    await calculatorPage.buttonClear.click()
+    await expect(calculatorPage.textInput).toHaveText('')
+    
 });
 
-When(/^I login with (\w+) and (.+)$/, async (username, password) => {
-    await LoginPage.login(username, password)
+When('I add {word} and {word}', async function(num1, num2) {
+    await calculatorPage.numberButton(num1).click()
+    await calculatorPage.buttonAdd.click()
+    await calculatorPage.numberButton(num2).click()
+    await calculatorPage.buttonEquals.click()
 });
 
-Then(/^I should see a flash message saying (.*)$/, async (message) => {
-    await expect(SecurePage.flashAlert).toBeExisting();
-    await expect(SecurePage.flashAlert).toHaveTextContaining(message);
+Then('the sum should be {word}', async function(result) {
+    await expect(calculatorPage.textInput).toHaveText(result)
 });
-

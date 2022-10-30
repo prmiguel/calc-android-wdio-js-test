@@ -1,12 +1,17 @@
-Feature: The Internet Guinea Pig Website
-
-  Scenario Outline: As a user, I can log into the secure area
-
-    Given I am on the login page
-    When I login with <username> and <password>
-    Then I should see a flash message saying <message>
-
+Feature:  Adding numbers with a Calculator
+  
+  In order to not learn math
+  As someone who is bad at math
+  I want to be able to add numbers using a Calculator
+  
+  Scenario Outline:  Add two numbers
+    Given I have a Calculator
+    When I add <num1> and <num2>
+    Then the sum should be <result>
     Examples:
-      | username | password             | message                        |
-      | tomsmith | SuperSecretPassword! | You logged into a secure area! |
-      | foobar   | barfoo               | Your username is invalid!      |
+      | num1 | num2 | result |
+      | 0    | 0    | 0      |
+      | 0    | 1    | 1      |
+      | 6    | 0    | 6      |
+      | 1    | 8    | 9      |
+      | 5    | 5    | 10     |
