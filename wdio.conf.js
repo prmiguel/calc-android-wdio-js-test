@@ -5,8 +5,9 @@ exports.config = {
     // ====================
     //
     port: 4723,
-    hostname: '192.168.0.16',
-    path: '/wd/hub',
+    // hostname: '192.168.0.130',
+    hostname: 'appium-server',
+    path: '/',
     //
     // ==================
     // Specify Test Files
@@ -60,7 +61,8 @@ exports.config = {
         maxInstances: 5,
         //
         platformName: 'Android',
-        app: 'https://github.com/Darkempire78/OpenCalc/releases/download/1.7.2/OpenCalc.v1.7.2.apk',
+        'appium:automationName': 'uiautomator2',
+        'appium:app': 'https://github.com/Darkempire78/OpenCalc/releases/download/1.7.2/OpenCalc.v1.7.2.apk',
         // browserName: 'chrome',
         acceptInsecureCerts: true
         // If outputDir is provided WebdriverIO can capture driver session logs
