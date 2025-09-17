@@ -1,4 +1,4 @@
-Feature:  Adding numbers with a Calculator
+Feature:  Addition Operation
   
   In order to not learn math
   As someone who is bad at math
