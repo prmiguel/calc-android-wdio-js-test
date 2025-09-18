@@ -54,21 +54,22 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-    
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
+        maxInstances: 1,
         platformName: 'Android',
         'appium:automationName': 'uiautomator2',
         'appium:app': 'https://github.com/Darkempire78/OpenCalc/releases/download/1.7.2/OpenCalc.v1.7.2.apk',
-        // browserName: 'chrome',
-        acceptInsecureCerts: true
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
+        'appium:udid': 'android-emulator-one:5555',
+        acceptInsecureCerts: true,
+        'appium:sessionOverride': true
+    },
+    {
+        maxInstances: 1,
+        platformName: 'Android',
+        'appium:automationName': 'uiautomator2',
+        'appium:app': 'https://github.com/Darkempire78/OpenCalc/releases/download/1.7.2/OpenCalc.v1.7.2.apk',
+        'appium:udid': 'android-emulator-two:5555',
+        acceptInsecureCerts: true,
+        'appium:sessionOverride': true
     }],
     //
     // ===================
